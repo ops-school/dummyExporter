@@ -33,16 +33,16 @@ my_dict['DummyService_duration_cumulative_bucket{le="70.0",'] = 8381.0
 my_dict['DummyService_duration_cumulative_bucket{le="80.0",'] = 8774.0
 my_dict['DummyService_duration_cumulative_bucket{le="90.0",'] = 9178.0
 my_dict['DummyService_duration_cumulative_bucket{le="+Inf",'] = 10008.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="10.0",'] = 1056.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="10.0",'] = 646.0
 my_dict['DummyService_duration_non_cumulative_bucket{le="20.0",'] = 646.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="30.0",'] = 631.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="40.0",'] = 630.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="50.0",'] = 629.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="60.0",'] = 413.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="70.0",'] = 377.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="80.0",'] = 392.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="90.0",'] = 404.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] = 830.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="30.0",'] = 646.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="40.0",'] = 646.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="50.0",'] = 646.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="60.0",'] = 646.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="70.0",'] = 646.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="80.0",'] = 646.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="90.0",'] = 646.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] = 646.0
 
 def update_dict():
   """ change dict data with random """
@@ -84,7 +84,7 @@ def create_data():
    update_dict()
    return_string = ''
    for key in my_dict:
-     return_string += key+'process_id="'+str(PROCESS_ID)+'",process_name="'+PROCESS_NAME+'"} '+str(my_dict[key])+"<br>"
+     return_string += key+'process_id="'+str(PROCESS_ID)+'",process_name="'+PROCESS_NAME+'"} '+str(my_dict[key])+"\n"
    return return_string
 
 @app.route('/')
