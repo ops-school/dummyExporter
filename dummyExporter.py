@@ -33,16 +33,16 @@ my_dict['DummyService_duration_cumulative_bucket{le="70.0",'] = 7381.0
 my_dict['DummyService_duration_cumulative_bucket{le="80.0",'] = 8774.0
 my_dict['DummyService_duration_cumulative_bucket{le="90.0",'] = 9178.0
 my_dict['DummyService_duration_cumulative_bucket{le="+Inf",'] = 10008.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="10.0",'] = 646.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="20.0",'] = 646.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="30.0",'] = 646.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="40.0",'] = 646.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="10.0",'] = 246.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="20.0",'] = 346.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="30.0",'] = 446.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="40.0",'] = 546.0
 my_dict['DummyService_duration_non_cumulative_bucket{le="50.0",'] = 646.0
 my_dict['DummyService_duration_non_cumulative_bucket{le="60.0",'] = 646.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="70.0",'] = 646.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="80.0",'] = 646.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="90.0",'] = 646.0
-my_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] = 646.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="70.0",'] = 546.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="80.0",'] = 446.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="90.0",'] = 446.0
+my_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] = 446.0
 
 def update_dict():
   """ change dict data with random """
