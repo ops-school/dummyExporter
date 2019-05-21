@@ -23,13 +23,13 @@ my_dict['DummyService_duration_summary{quantile="0.99",'] = 0.0
 my_dict['DummyService_duration_summary{quantile="0.999",'] = 0.0
 my_dict['DummyService_duration_summary_count{'] = 10008.0
 my_dict['DummyService_duration_summary_sum{'] = 433354.0
-my_dict['DummyService_duration_cumulative_bucket{le="10.0",'] = 5056.0
-my_dict['DummyService_duration_cumulative_bucket{le="20.0",'] = 5702.0
-my_dict['DummyService_duration_cumulative_bucket{le="30.0",'] = 6333.0
-my_dict['DummyService_duration_cumulative_bucket{le="40.0",'] = 6963.0
-my_dict['DummyService_duration_cumulative_bucket{le="50.0",'] = 7592.0
-my_dict['DummyService_duration_cumulative_bucket{le="60.0",'] = 8005.0
-my_dict['DummyService_duration_cumulative_bucket{le="70.0",'] = 8381.0
+my_dict['DummyService_duration_cumulative_bucket{le="10.0",'] = 1056.0
+my_dict['DummyService_duration_cumulative_bucket{le="20.0",'] = 2702.0
+my_dict['DummyService_duration_cumulative_bucket{le="30.0",'] = 3333.0
+my_dict['DummyService_duration_cumulative_bucket{le="40.0",'] = 4963.0
+my_dict['DummyService_duration_cumulative_bucket{le="50.0",'] = 5592.0
+my_dict['DummyService_duration_cumulative_bucket{le="60.0",'] = 6005.0
+my_dict['DummyService_duration_cumulative_bucket{le="70.0",'] = 7381.0
 my_dict['DummyService_duration_cumulative_bucket{le="80.0",'] = 8774.0
 my_dict['DummyService_duration_cumulative_bucket{le="90.0",'] = 9178.0
 my_dict['DummyService_duration_cumulative_bucket{le="+Inf",'] = 10008.0
@@ -70,15 +70,15 @@ def update_dict():
   my_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] += (5-RAND.randint(0, 10))
 
   my_dict['DummyService_duration_cumulative_bucket{le="10.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="10.0",']
-  my_dict['DummyService_duration_cumulative_bucket{le="20.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="20.0",']
-  my_dict['DummyService_duration_cumulative_bucket{le="30.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="30.0",']
-  my_dict['DummyService_duration_cumulative_bucket{le="40.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="40.0",']
-  my_dict['DummyService_duration_cumulative_bucket{le="50.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="50.0",']
-  my_dict['DummyService_duration_cumulative_bucket{le="60.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="60.0",']
-  my_dict['DummyService_duration_cumulative_bucket{le="70.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="70.0",']
-  my_dict['DummyService_duration_cumulative_bucket{le="80.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="80.0",']
-  my_dict['DummyService_duration_cumulative_bucket{le="90.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="90.0",']
-  my_dict['DummyService_duration_cumulative_bucket{le="+Inf",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",']
+  my_dict['DummyService_duration_cumulative_bucket{le="20.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="20.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="10.0",']
+  my_dict['DummyService_duration_cumulative_bucket{le="30.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="30.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="20.0",']
+  my_dict['DummyService_duration_cumulative_bucket{le="40.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="40.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="30.0",']
+  my_dict['DummyService_duration_cumulative_bucket{le="50.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="50.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="40.0",']
+  my_dict['DummyService_duration_cumulative_bucket{le="60.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="60.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="50.0",']
+  my_dict['DummyService_duration_cumulative_bucket{le="70.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="70.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="60.0",']
+  my_dict['DummyService_duration_cumulative_bucket{le="80.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="80.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="70.0",']
+  my_dict['DummyService_duration_cumulative_bucket{le="90.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="90.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="80.0",']
+  my_dict['DummyService_duration_cumulative_bucket{le="+Inf",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] + my_dict['DummyService_duration_cumulative_bucket{le="90.0",']
 
 def create_data():
    update_dict()
