@@ -46,16 +46,16 @@ class DummyMetrics:
     self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] = 446.0
   def update_metrics(self):
     """ change dict data with random """
-    self.metrics_dict['DummyService_requests{caller = "APT",'] += RAND.randint(0, 100)
+    self.metrics_dict['DummyService_requests{caller = "Dummy",'] += RAND.randint(0, 100)
     self.metrics_dict['DummyService_errors{'] += RAND.randint(0, 10)
     self.metrics_dict['DummyService_duration_summary_count{'] += RAND.randint(0, 100)
     self.metrics_dict['DummyService_duration_summary_sum{'] += RAND.randint(0, 1000)
     self.metrics_dict['DummyService_duration_summary{quantile="0.5",'] += (5-RAND.randint(0, 10))
-    self.metrics_dict['DummyService_duration_summary{quantile="0.75",'] = (my_dict['DummyService_duration_summary{quantile="0.5",']+RAND.randint(0, 3))
-    self.metrics_dict['DummyService_duration_summary{quantile="0.95",'] = (my_dict['DummyService_duration_summary{quantile="0.75",']+RAND.randint(0, 5))
-    self.metrics_dict['DummyService_duration_summary{quantile="0.98",'] = (my_dict['DummyService_duration_summary{quantile="0.95",']+RAND.randint(0, 5))
-    self.metrics_dict['DummyService_duration_summary{quantile="0.99",'] = (my_dict['DummyService_duration_summary{quantile="0.98",']+RAND.randint(0, 5))
-    self.metrics_dict['DummyService_duration_summary{quantile="0.999",'] = (my_dict['DummyService_duration_summary{quantile="0.99",']+RAND.randint(0, 10))
+    self.metrics_dict['DummyService_duration_summary{quantile="0.75",'] = (self.metrics_dict['DummyService_duration_summary{quantile="0.5",']+RAND.randint(0, 3))
+    self.metrics_dict['DummyService_duration_summary{quantile="0.95",'] = (self.metrics_dict['DummyService_duration_summary{quantile="0.75",']+RAND.randint(0, 5))
+    self.metrics_dict['DummyService_duration_summary{quantile="0.98",'] = (self.metrics_dict['DummyService_duration_summary{quantile="0.95",']+RAND.randint(0, 5))
+    self.metrics_dict['DummyService_duration_summary{quantile="0.99",'] = (self.metrics_dict['DummyService_duration_summary{quantile="0.98",']+RAND.randint(0, 5))
+    self.metrics_dict['DummyService_duration_summary{quantile="0.999",'] = (self.metrics_dict['DummyService_duration_summary{quantile="0.99",']+RAND.randint(0, 10))
     self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="10.0",'] += (5-RAND.randint(0, 10))
     self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="20.0",'] += (5-RAND.randint(0, 10))
     self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="30.0",'] += (5-RAND.randint(0, 10))
@@ -66,17 +66,18 @@ class DummyMetrics:
     self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="80.0",'] += (5-RAND.randint(0, 10))
     self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="90.0",'] += (5-RAND.randint(0, 10))
     self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] += (5-RAND.randint(0, 10))
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="10.0",'] += my_dict['DummyService_duration_non_cumulative_bucket{le="10.0",']
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="20.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="20.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="10.0",']
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="30.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="30.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="20.0",']
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="40.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="40.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="30.0",']
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="50.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="50.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="40.0",']
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="60.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="60.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="50.0",']
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="70.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="70.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="60.0",']
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="80.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="80.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="70.0",']
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="90.0",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="90.0",'] + my_dict['DummyService_duration_cumulative_bucket{le="80.0",']
-    self.metrics_dict['DummyService_duration_cumulative_bucket{le="+Inf",'] = my_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] + my_dict['DummyService_duration_cumulative_bucket{le="90.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="10.0",'] += self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="10.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="20.0",'] = self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="20.0",'] + self.metrics_dict['DummyService_duration_cumulative_bucket{le="10.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="30.0",'] = self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="30.0",'] + self.metrics_dict['DummyService_duration_cumulative_bucket{le="20.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="40.0",'] = self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="40.0",'] + self.metrics_dict['DummyService_duration_cumulative_bucket{le="30.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="50.0",'] = self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="50.0",'] + self.metrics_dict['DummyService_duration_cumulative_bucket{le="40.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="60.0",'] = self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="60.0",'] + self.metrics_dict['DummyService_duration_cumulative_bucket{le="50.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="70.0",'] = self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="70.0",'] + self.metrics_dict['DummyService_duration_cumulative_bucket{le="60.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="80.0",'] = self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="80.0",'] + self.metrics_dict['DummyService_duration_cumulative_bucket{le="70.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="90.0",'] = self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="90.0",'] + self.metrics_dict['DummyService_duration_cumulative_bucket{le="80.0",']
+    self.metrics_dict['DummyService_duration_cumulative_bucket{le="+Inf",'] = self.metrics_dict['DummyService_duration_non_cumulative_bucket{le="+Inf",'] + self.metrics_dict['DummyService_duration_cumulative_bucket{le="90.0",']
   def get_metrics(self):
+    self.update_metrics()
     return_string = ''
     for key in self.metrics_dict:
       return_string += key+'process_id="'+str(PROCESS_ID)+'",process_name="'+PROCESS_NAME+'"} '+str(self.metrics_dict[key])+"\n"
@@ -92,6 +93,7 @@ def goaway():
     return 'DUMMY EXPORTER IS UP!'
 
 @app.route('/metrics')
+
 def metrics():
     return_data = metrics.get_metrics()
     return return_data
